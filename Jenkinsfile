@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/solutions']], userRemoteConfigs: [[url: 'https://github.com/hassabdo/exercice-java-unit-testing.git']]])
+            }
+                }
         stage('Build') {
             steps {
                 script {
